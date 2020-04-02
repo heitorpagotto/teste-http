@@ -1,17 +1,23 @@
-<h1>TESTE HTTP GET</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a class="navbar-brand" href="#">HTTP Get</a>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+            <form [formGroup]="form"  (submit)="getPost()" class="form-inline my-2 my-lg-0">
+                <input type="text" formControlName="filter" placeholder="Filtrar"/>
+          </form>
+          </div>
+    </div>
 
-
-<form [formGroup]="form"  (submit)="getPost()">
-    <div>
-        <label>filter:</label>
-        <br>
-        <input type="text" formControlName="filter"/>
-      </div>
-      
-</form>
-
-<div *ngFor="let item of postsFiltred">
-  <hr>
+</nav>
+<div class="container">
+  <h1 class="text-center">TESTE HTTP GET</h1>
+<br>
+<div *ngFor="let item of postsFiltred" class="card shadow mb-3" data-aos="zoom-out">
+  <div class="card-body">
+      <hr>
   <br>
   <span>Id do Post: {{item.id}}</span>
   <br>
@@ -23,6 +29,9 @@
       Body: {{item.body}}
   </div>
   <br>
+  </div>
+
+</div>
 </div>
 
 <router-outlet></router-outlet>
